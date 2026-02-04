@@ -71,7 +71,7 @@
     }
   },
   "bin": {
-    "gemini": "bundle/gemini.js"
+    "nika": "bundle/gemini.js"
   },
   "files": [
     "bundle/",
@@ -124,8 +124,13 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "@kubernetes/client-node": "^1.4.0",
+    "axios": "^1.13.4",
+    "chokidar": "^5.0.0",
+    "croner": "^10.0.1",
     "ink": "npm:@jrichman/ink@6.4.8",
     "latest-version": "^9.0.0",
+    "mcp-obsidian": "^1.0.0",
     "simple-git": "^3.28.0"
   },
   "optionalDependencies": {

@@ -1,0 +1,68 @@
+# =============================================================================
+# NIKA OS - AGENT CONTAINER
+# Base image for Kubernetes Swarm Nodes
+# =============================================================================
+
+FROM node:20-slim AS builder
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y 
+    python3 
+    make 
+    g++ 
+    git 
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy repo
+COPY . .
+
+# Install and Build
+RUN npm ci
+RUN npm run build:packages
+RUN npm run bundle
+
+# =============================================================================
+# RUNTIME IMAGE
+# =============================================================================
+FROM node:20-slim
+
+# Install Runtime Dependencies for Multimodality & Ops
+# - python3/pip: For stats/ML scripts
+# - ffmpeg: For audio processing
+# - curl/wget: For web fetching
+# - git: For repo management
+RUN apt-get update && apt-get install -y 
+    python3 
+    python3-pip 
+    ffmpeg 
+    curl 
+    wget 
+    git 
+    procps 
+    && rm -rf /var/lib/apt/lists/*
+
+# Install global Python packages for Stats/ML (Taguchi, Weibull, etc.)
+# Using --break-system-packages as we are in a container
+RUN pip3 install numpy pandas scipy scikit-learn matplotlib --break-system-packages
+
+WORKDIR /app
+
+# Copy built bundle from builder
+COPY --from=builder /app/bundle ./bundle
+COPY --from=builder /app/package.json .
+
+# Create workspace directory for data
+RUN mkdir -p /workspace/10_Jobs /workspace/70_Resources /workspace/80_Knowledge
+ENV WORKSPACE_DIR=/workspace
+
+# Set Environment Variables
+ENV NODE_ENV=production
+ENV GEMINI_MODEL=auto-gemini-3
+# Branding
+ENV NIKA_THEME=Pulsai
+
+# Entrypoint wraps the node execution
+ENTRYPOINT ["node", "bundle/gemini.js"]
+CMD ["--prompt-interactive"]

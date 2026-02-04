@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nika-orchestrator
+  namespace: nika-swarm
+  labels:
+    app: nika
+    role: orchestrator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nika
+      role: orchestrator
+  template:
+    metadata:
+      labels:
+        app: nika
+        role: orchestrator
+    spec:
+      serviceAccountName: nika-sa
+      containers:
+        - name: nika-core
+          image: nika-cli:latest
+          imagePullPolicy: IfNotPresent
+          command: ["node", "bundle/gemini.js"]
+          args: ["--prompt-interactive", "Initialisation Nika Swarm. Check Jobs."]
+          env:
+            - name: NIKA_ROLE
+              value: "Orchestrator"
+            - name: QDRANT_URL
+              value: "http://qdrant.nika-network:6333"
+          volumeMounts:
+            - name: vault-storage
+              mountPath: /workspace
+      volumes:
+        - name: vault-storage
+          persistentVolumeClaim:
+            claimName: nika-vault-pvc
+
+---
+# Template for Spawning Worker Agents (Jobs)
+# This YAML is read by the Orchestrator to spawn children
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: nika-worker-template
+  namespace: nika-swarm
+spec:
+  template:
+    spec:
+      containers:
+        - name: nika-worker
+          image: nika-cli:latest
+          command: ["node", "bundle/gemini.js"]
+          args: ["--prompt", "${PROMPT_INJECTED_HERE}"]
+          env:
+            - name: NIKA_ROLE
+              value: "Worker"
+          volumeMounts:
+            - name: vault-storage
+              mountPath: /workspace
+      restartPolicy: Never
+      volumes:
+        - name: vault-storage
+          persistentVolumeClaim:
+            claimName: nika-vault-pvc

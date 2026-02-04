@@ -8,6 +8,8 @@ import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import process from 'node:process';
 import { mcpCommand } from '../commands/mcp.js';
+import { swarmCommand } from '../commands/swarm.js';
+import { cronCommand } from '../commands/cron.js';
 import { extensionsCommand } from '../commands/extensions.js';
 import { skillsCommand } from '../commands/skills.js';
 import { hooksCommand } from '../commands/hooks.js';
@@ -47,6 +49,8 @@ import {
   saveModelChange,
   loadSettings,
 } from './settings.js';
+
+import { loadNikaContext } from './nikaContext.js';
 
 import { loadSandboxConfig } from './sandboxConfig.js';
 import { resolvePath } from '../utils/resolvePath.js';
@@ -269,6 +273,8 @@ export async function parseArguments(
     )
     // Register MCP subcommands
     .command(mcpCommand)
+    .command(swarmCommand)
+    .command(cronCommand)
     // Ensure validation flows through .fail() for clean UX
     .fail((msg, err) => {
       if (err) throw err;
@@ -498,6 +504,12 @@ export async function loadCliConfig(
     memoryContent = result.memoryContent;
     fileCount = result.fileCount;
     filePaths = result.filePaths;
+  }
+
+  // Nika Context Injection
+  const nikaContext = await loadNikaContext(cwd);
+  if (nikaContext) {
+    memoryContent += nikaContext;
   }
 
   const question = argv.promptInteractive || argv.prompt || '';

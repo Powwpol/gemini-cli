@@ -14,6 +14,7 @@ import { GoogleCode } from './googlecode.js';
 import { Holiday } from './holiday.js';
 import { DefaultLight } from './default-light.js';
 import { DefaultDark } from './default.js';
+import { PulsaiTheme } from './pulsai.js';
 import { ShadesOfPurple } from './shades-of-purple.js';
 import { XCode } from './xcode.js';
 import * as fs from 'node:fs';
@@ -34,7 +35,7 @@ export interface ThemeDisplay {
   isCustom?: boolean;
 }
 
-export const DEFAULT_THEME: Theme = DefaultDark;
+export const DEFAULT_THEME: Theme = PulsaiTheme;
 
 class ThemeManager {
   private readonly availableThemes: Theme[];
@@ -51,6 +52,7 @@ class ThemeManager {
       Dracula,
       DefaultLight,
       DefaultDark,
+      PulsaiTheme,
       GitHubDark,
       GitHubLight,
       GoogleCode,

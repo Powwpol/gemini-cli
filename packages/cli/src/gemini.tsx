@@ -101,6 +101,7 @@ import { isAlternateBufferEnabled } from './ui/hooks/useAlternateBuffer.js';
 import { TerminalProvider } from './ui/contexts/TerminalContext.js';
 
 import { setupTerminalAndTheme } from './utils/terminalTheme.js';
+import { RagWatcher } from './services/ragWatcher.js';
 import { profiler } from './ui/components/DebugProfiler.js';
 import { runDeferredCommand } from './deferred.js';
 
@@ -293,6 +294,10 @@ export async function startInteractiveUI(
 
 export async function main() {
   const cliStartupHandle = startupProfiler.start('cli_startup');
+
+  // Start Nika RAG Watcher
+  const watcher = new RagWatcher(process.cwd());
+  watcher.start();
 
   // Listen for admin controls from parent process (IPC) in non-sandbox mode. In
   // sandbox mode, we re-fetch the admin controls from the server once we enter
