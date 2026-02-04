@@ -39,7 +39,7 @@ export class RagWatcher {
     console.log(`[RAG] File ${event}: ${path.basename(filePath)}. Triggering embedding...`);
     
     try {
-      const _content = fs.readFileSync(filePath, 'utf-8');
+      fs.readFileSync(filePath, 'utf-8');
       
       // Embedding logic...
       
