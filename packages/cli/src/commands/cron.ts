@@ -41,7 +41,7 @@ export const cronCommand: CommandModule = {
             const schedule = `${job.schedule.minute} ${job.schedule.hour} ${job.schedule.day_of_month} ${job.schedule.month} ${job.schedule.day_of_week}`;
             console.log(`[Scheduled] ${job.name} (${schedule})`);
 
-            Cron(schedule, () => {
+            new Cron(schedule, () => {
               console.log(`[Executing] ${job.name}...`);
               // Execute nika cli with the job template
               const prompt = job.config.template.split('\n').join(' ');

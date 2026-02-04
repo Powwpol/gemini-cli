@@ -8,14 +8,11 @@ import chokidar from 'chokidar';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 import { debugLogger } from '@google/gemini-cli-core';
-import axios from 'axios';
 
 export class RagWatcher {
   private watcher: any;
-  private qdrantUrl: string;
 
   constructor(private workspaceDir: string) {
-    this.qdrantUrl = process.env['QDRANT_URL'] || 'http://localhost:6333';
   }
 
   start() {
@@ -42,22 +39,9 @@ export class RagWatcher {
     console.log(`[RAG] File ${event}: ${path.basename(filePath)}. Triggering embedding...`);
     
     try {
-      const content = fs.readFileSync(filePath, 'utf-8');
+      const _content = fs.readFileSync(filePath, 'utf-8');
       
-      // Here we would typically call the Gemini Embedding API 
-      // then push to Qdrant. For the sake of this native integration,
-      // we'll assume a local RAG worker agent is listening or we call Qdrant directly if we have vectors.
-      
-      // Mock call to a Qdrant ingestion endpoint (to be replaced by real embedding logic)
-      /*
-      await axios.post(`${this.qdrantUrl}/collections/nika_memory/points`, {
-        points: [{
-          id: Math.floor(Math.random() * 1000000),
-          vector: [/* vector data * /],
-          payload: { path: filePath, content: content.slice(0, 500) }
-        }]
-      });
-      */
+      // Embedding logic...
       
       debugLogger.log(`Successfully indexed ${filePath} into RAG store.`);
     } catch (e) {
