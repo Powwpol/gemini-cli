@@ -7,7 +7,7 @@
 import { renderHook } from '../../test-utils/render.js';
 import { useTerminalTheme } from './useTerminalTheme.js';
 import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { makeFakeConfig, type Config } from '@google/gemini-cli-core';
+import { makeFakeConfig, type Config } from '@pulsai/nika-cli-core';
 import os from 'node:os';
 
 // Mocks

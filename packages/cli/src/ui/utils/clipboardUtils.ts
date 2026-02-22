@@ -14,7 +14,7 @@ import {
   unescapePath,
   escapePath,
   Storage,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 /**
  * Supported image file extensions based on Gemini API.

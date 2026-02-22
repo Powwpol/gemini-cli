@@ -436,7 +436,7 @@ describe('ReadFileTool', () => {
       expect(result.returnDisplay).toBe('');
     });
 
-    describe('with .geminiignore', () => {
+    describe('with .nikaignore', () => {
       beforeEach(async () => {
         await fsp.writeFile(
           path.join(tempRootDir, GEMINI_IGNORE_FILE_NAME),
@@ -479,7 +479,7 @@ describe('ReadFileTool', () => {
         tool = new ReadFileTool(mockConfigInstance, createMockMessageBus());
       });
 
-      it('should throw error if path is ignored by a .geminiignore pattern', async () => {
+      it('should throw error if path is ignored by a .nikaignore pattern', async () => {
         const ignoredFilePath = path.join(tempRootDir, 'foo.bar');
         await fsp.writeFile(ignoredFilePath, 'content', 'utf-8');
         const params: ReadFileToolParams = {

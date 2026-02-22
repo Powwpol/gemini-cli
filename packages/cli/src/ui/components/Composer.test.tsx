@@ -23,7 +23,7 @@ vi.mock('../contexts/VimModeContext.js', () => ({
     vimMode: 'INSERT',
   })),
 }));
-import { ApprovalMode } from '@google/gemini-cli-core';
+import { ApprovalMode } from '@pulsai/nika-cli-core';
 import { StreamingState } from '../types.js';
 
 // Mock child components

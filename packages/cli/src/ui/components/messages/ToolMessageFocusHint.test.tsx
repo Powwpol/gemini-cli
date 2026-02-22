@@ -14,7 +14,7 @@ import {
   SHELL_COMMAND_NAME,
   SHELL_FOCUS_HINT_DELAY_MS,
 } from '../../constants.js';
-import type { Config, ToolResultDisplay } from '@google/gemini-cli-core';
+import type { Config, ToolResultDisplay } from '@pulsai/nika-cli-core';
 
 vi.mock('../GeminiRespondingSpinner.js', () => ({
   GeminiRespondingSpinner: () => null,

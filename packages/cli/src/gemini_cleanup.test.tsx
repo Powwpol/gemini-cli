@@ -6,8 +6,8 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { main } from './gemini.js';
-import { debugLogger } from '@google/gemini-cli-core';
-import { type Config } from '@google/gemini-cli-core';
+import { debugLogger } from '@pulsai/nika-cli-core';
+import { type Config } from '@pulsai/nika-cli-core';
 
 // Custom error to identify mock process.exit calls
 class MockProcessExitError extends Error {
@@ -17,9 +17,8 @@ class MockProcessExitError extends Error {
   }
 }
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     writeToStdout: vi.fn(),
@@ -145,11 +144,11 @@ vi.mock('./utils/sessionCleanup.js', async (importOriginal) => {
 describe('gemini.tsx main function cleanup', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    process.env['GEMINI_CLI_NO_RELAUNCH'] = 'true';
+    process.env['NIKA_CLI_NO_RELAUNCH'] = 'true';
   });
 
   afterEach(() => {
-    delete process.env['GEMINI_CLI_NO_RELAUNCH'];
+    delete process.env['NIKA_CLI_NO_RELAUNCH'];
     vi.restoreAllMocks();
   });
 

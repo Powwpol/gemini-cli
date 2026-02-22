@@ -11,7 +11,7 @@ import * as crypto from 'node:crypto';
 import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-export const GEMINI_DIR = '.gemini';
+export const GEMINI_DIR = '.nika';
 export const GOOGLE_ACCOUNTS_FILENAME = 'google_accounts.json';
 
 /**
@@ -27,7 +27,7 @@ export const SHELL_SPECIAL_CHARS = /[ \t()[\]{};|*?$`'"#&<>!~]/;
  * Otherwise, it returns the user's home directory.
  */
 export function homedir(): string {
-  const envHome = process.env['GEMINI_CLI_HOME'];
+  const envHome = process.env['NIKA_CLI_HOME'];
   if (envHome) {
     return envHome;
   }

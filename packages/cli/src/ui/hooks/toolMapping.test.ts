@@ -18,7 +18,7 @@ import {
   type ExecutingToolCall,
   type WaitingToolCall,
   type CancelledToolCall,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { ToolCallStatus } from '../types.js';
 
 describe('toolMapping', () => {

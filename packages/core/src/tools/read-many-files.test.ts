@@ -492,7 +492,7 @@ describe('ReadManyFilesTool', () => {
       ]);
     });
 
-    it('should return error if path is ignored by a .geminiignore pattern', async () => {
+    it('should return error if path is ignored by a .nikaignore pattern', async () => {
       createFile('foo.bar', '');
       createFile('bar.ts', '');
       createFile('foo.quux', '');

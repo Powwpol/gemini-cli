@@ -6,7 +6,7 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { InitCommand } from './init.js';
-import { performInit } from '@google/gemini-cli-core';
+import { performInit } from '@pulsai/nika-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { CoderAgentExecutor } from '../agent/executor.js';
@@ -14,12 +14,11 @@ import { CoderAgentEvent } from '../types.js';
 import type { ExecutionEventBus } from '@a2a-js/sdk/server';
 import { createMockConfig } from '../utils/testing_utils.js';
 import type { CommandContext } from './types.js';
-import type { CommandActionReturn, Config } from '@google/gemini-cli-core';
+import type { CommandActionReturn, Config } from '@pulsai/nika-cli-core';
 import { logger } from '../utils/logger.js';
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     performInit: vi.fn(),
@@ -86,7 +85,7 @@ describe('InitCommand', () => {
       vi.mocked(performInit).mockReturnValue({
         type: 'message',
         messageType: 'info',
-        content: 'GEMINI.md already exists.',
+        content: 'NIKA.md already exists.',
       } as CommandActionReturn);
 
       await command.execute(context, []);
@@ -98,7 +97,7 @@ describe('InitCommand', () => {
           status: expect.objectContaining({
             state: 'completed',
             message: expect.objectContaining({
-              parts: [{ kind: 'text', text: 'GEMINI.md already exists.' }],
+              parts: [{ kind: 'text', text: 'NIKA.md already exists.' }],
             }),
           }),
         }),
@@ -110,7 +109,7 @@ describe('InitCommand', () => {
           status: expect.objectContaining({
             state: 'completed',
             message: expect.objectContaining({
-              parts: [{ kind: 'text', text: 'GEMINI.md already exists.' }],
+              parts: [{ kind: 'text', text: 'NIKA.md already exists.' }],
             }),
           }),
         }),
@@ -143,7 +142,7 @@ describe('InitCommand', () => {
       beforeEach(() => {
         vi.mocked(performInit).mockReturnValue({
           type: 'submit_prompt',
-          content: 'Create a new GEMINI.md file.',
+          content: 'Create a new NIKA.md file.',
         } as CommandActionReturn);
       });
 
@@ -151,7 +150,7 @@ describe('InitCommand', () => {
         await command.execute(context, []);
 
         expect(fs.writeFileSync).toHaveBeenCalledWith(
-          path.join(mockWorkspacePath, 'GEMINI.md'),
+          path.join(mockWorkspacePath, 'NIKA.md'),
           '',
           'utf8',
         );
@@ -166,7 +165,7 @@ describe('InitCommand', () => {
             userMessage: expect.objectContaining({
               parts: expect.arrayContaining([
                 expect.objectContaining({
-                  text: 'Create a new GEMINI.md file.',
+                  text: 'Create a new NIKA.md file.',
                 }),
               ]),
               metadata: {

@@ -6,7 +6,7 @@
 
 import type { Message } from '../types.js';
 import { MessageType } from '../types.js';
-import { debugLogger, type Config } from '@google/gemini-cli-core';
+import { debugLogger, type Config } from '@pulsai/nika-cli-core';
 import type { LoadedSettings } from '../../config/settings.js';
 
 export function createShowMemoryAction(
@@ -67,8 +67,8 @@ export function createShowMemoryAction(
         type: MessageType.INFO,
         content:
           fileCount > 0
-            ? 'Hierarchical memory (GEMINI.md or other context files) is loaded but content is empty.'
-            : 'No hierarchical memory (GEMINI.md or other context files) is currently loaded.',
+            ? 'Hierarchical memory (NIKA.md or other context files) is loaded but content is empty.'
+            : 'No hierarchical memory (NIKA.md or other context files) is currently loaded.',
         timestamp: new Date(),
       });
     }

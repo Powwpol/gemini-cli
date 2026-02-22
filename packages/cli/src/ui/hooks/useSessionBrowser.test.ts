@@ -18,8 +18,8 @@ import type {
   Config,
   ConversationRecord,
   MessageRecord,
-} from '@google/gemini-cli-core';
-import { coreEvents } from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
+import { coreEvents } from '@pulsai/nika-cli-core';
 
 // Mock modules
 vi.mock('fs/promises');

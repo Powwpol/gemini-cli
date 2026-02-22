@@ -28,7 +28,7 @@ vi.mock('../utils/paths.js', async (importOriginal) => {
 });
 
 describe('Storage – getGlobalSettingsPath', () => {
-  it('returns path to ~/.gemini/settings.json', () => {
+  it('returns path to ~/.nika/settings.json', () => {
     const expected = path.join(os.homedir(), GEMINI_DIR, 'settings.json');
     expect(Storage.getGlobalSettingsPath()).toBe(expected);
   });
@@ -54,42 +54,42 @@ describe('Storage – additional helpers', () => {
   const projectRoot = '/tmp/project';
   const storage = new Storage(projectRoot);
 
-  it('getWorkspaceSettingsPath returns project/.gemini/settings.json', () => {
+  it('getWorkspaceSettingsPath returns project/.nika/settings.json', () => {
     const expected = path.join(projectRoot, GEMINI_DIR, 'settings.json');
     expect(storage.getWorkspaceSettingsPath()).toBe(expected);
   });
 
-  it('getUserCommandsDir returns ~/.gemini/commands', () => {
+  it('getUserCommandsDir returns ~/.nika/commands', () => {
     const expected = path.join(os.homedir(), GEMINI_DIR, 'commands');
     expect(Storage.getUserCommandsDir()).toBe(expected);
   });
 
-  it('getProjectCommandsDir returns project/.gemini/commands', () => {
+  it('getProjectCommandsDir returns project/.nika/commands', () => {
     const expected = path.join(projectRoot, GEMINI_DIR, 'commands');
     expect(storage.getProjectCommandsDir()).toBe(expected);
   });
 
-  it('getUserSkillsDir returns ~/.gemini/skills', () => {
+  it('getUserSkillsDir returns ~/.nika/skills', () => {
     const expected = path.join(os.homedir(), GEMINI_DIR, 'skills');
     expect(Storage.getUserSkillsDir()).toBe(expected);
   });
 
-  it('getProjectSkillsDir returns project/.gemini/skills', () => {
+  it('getProjectSkillsDir returns project/.nika/skills', () => {
     const expected = path.join(projectRoot, GEMINI_DIR, 'skills');
     expect(storage.getProjectSkillsDir()).toBe(expected);
   });
 
-  it('getUserAgentsDir returns ~/.gemini/agents', () => {
+  it('getUserAgentsDir returns ~/.nika/agents', () => {
     const expected = path.join(os.homedir(), GEMINI_DIR, 'agents');
     expect(Storage.getUserAgentsDir()).toBe(expected);
   });
 
-  it('getProjectAgentsDir returns project/.gemini/agents', () => {
+  it('getProjectAgentsDir returns project/.nika/agents', () => {
     const expected = path.join(projectRoot, GEMINI_DIR, 'agents');
     expect(storage.getProjectAgentsDir()).toBe(expected);
   });
 
-  it('getMcpOAuthTokensPath returns ~/.gemini/mcp-oauth-tokens.json', () => {
+  it('getMcpOAuthTokensPath returns ~/.nika/mcp-oauth-tokens.json', () => {
     const expected = path.join(
       os.homedir(),
       GEMINI_DIR,
@@ -98,12 +98,12 @@ describe('Storage – additional helpers', () => {
     expect(Storage.getMcpOAuthTokensPath()).toBe(expected);
   });
 
-  it('getGlobalBinDir returns ~/.gemini/tmp/bin', () => {
+  it('getGlobalBinDir returns ~/.nika/tmp/bin', () => {
     const expected = path.join(os.homedir(), GEMINI_DIR, 'tmp', 'bin');
     expect(Storage.getGlobalBinDir()).toBe(expected);
   });
 
-  it('getProjectTempPlansDir returns ~/.gemini/tmp/<hash>/plans', () => {
+  it('getProjectTempPlansDir returns ~/.nika/tmp/<hash>/plans', () => {
     const tempDir = storage.getProjectTempDir();
     const expected = path.join(tempDir, 'plans');
     expect(storage.getProjectTempPlansDir()).toBe(expected);

@@ -1,2 +1,2 @@
 @echo off
-node "%~dp0bundle\gemini.js" %*
+node "%~dp0bundle\nika.js" %*

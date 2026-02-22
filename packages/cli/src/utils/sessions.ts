@@ -10,7 +10,7 @@ import {
   writeToStderr,
   writeToStdout,
   type Config,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   formatRelativeTime,
   SessionSelector,

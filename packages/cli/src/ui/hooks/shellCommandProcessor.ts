@@ -10,8 +10,8 @@ import type {
 } from '../types.js';
 import { ToolCallStatus } from '../types.js';
 import { useCallback, useReducer, useRef, useEffect } from 'react';
-import type { AnsiOutput, Config, GeminiClient } from '@google/gemini-cli-core';
-import { isBinary, ShellExecutionService } from '@google/gemini-cli-core';
+import type { AnsiOutput, Config, GeminiClient } from '@pulsai/nika-cli-core';
+import { isBinary, ShellExecutionService } from '@pulsai/nika-cli-core';
 import { type PartListUnion } from '@google/genai';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import { SHELL_COMMAND_NAME } from '../constants.js';

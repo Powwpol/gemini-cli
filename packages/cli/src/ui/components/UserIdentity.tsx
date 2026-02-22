@@ -12,7 +12,7 @@ import {
   type Config,
   UserAccountManager,
   AuthType,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 interface UserIdentityProps {
   config: Config;

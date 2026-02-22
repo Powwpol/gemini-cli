@@ -16,7 +16,7 @@ import {
   coreEvents,
   CoreEvent,
   type ConsoleLogPayload,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 export interface UseConsoleMessagesReturn {
   consoleMessages: ConsoleMessageItem[];

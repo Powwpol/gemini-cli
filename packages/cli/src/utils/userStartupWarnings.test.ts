@@ -23,9 +23,8 @@ vi.mock('os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     homedir: () => os.homedir(),
@@ -63,7 +62,7 @@ describe('getUserStartupWarnings', () => {
       const warnings = await getUserStartupWarnings({}, homeDir);
       expect(warnings).toContainEqual(
         expect.stringContaining(
-          'Warning you are running Gemini CLI in your home directory',
+          'Warning you are running Nika CLI in your home directory',
         ),
       );
       expect(warnings).toContainEqual(

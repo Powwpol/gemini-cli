@@ -22,9 +22,9 @@ import {
   type EditorType,
   isEditorAvailable,
   EDITOR_DISPLAY_NAMES,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { useKeypress } from '../hooks/useKeypress.js';
-import { coreEvents } from '@google/gemini-cli-core';
+import { coreEvents } from '@pulsai/nika-cli-core';
 
 interface EditorDialogProps {
   onSelect: (

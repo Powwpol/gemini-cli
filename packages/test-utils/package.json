@@ -1,5 +1,5 @@
 {
-  "name": "@google/gemini-cli-test-utils",
+  "name": "@pulsai/nika-cli-test-utils",
   "version": "0.29.0-nightly.20260203.71f46f116",
   "private": true,
   "main": "src/index.ts",
@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/gemini-cli-core": "file:../core",
+    "@pulsai/nika-cli-core": "file:../core",
     "@lydell/node-pty": "1.1.0",
     "strip-ansi": "^7.1.2",
     "vitest": "^3.2.4"

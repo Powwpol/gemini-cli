@@ -14,7 +14,7 @@ export function createLogger(
     const isDevMode =
       context.extensionMode === vscode.ExtensionMode.Development;
     const isLoggingEnabled = vscode.workspace
-      .getConfiguration('gemini-cli.debug')
+      .getConfiguration('nika-cli.debug')
       .get('logging.enabled');
 
     if (isDevMode || isLoggingEnabled) {

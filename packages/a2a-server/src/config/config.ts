@@ -8,7 +8,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as dotenv from 'dotenv';
 
-import type { TelemetryTarget } from '@google/gemini-cli-core';
+import type { TelemetryTarget } from '@pulsai/nika-cli-core';
 import {
   AuthType,
   Config,
@@ -27,7 +27,7 @@ import {
   fetchAdminControlsOnce,
   getCodeAssistServer,
   ExperimentFlags,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 import { logger } from '../utils/logger.js';
 import type { Settings } from './settings.js';

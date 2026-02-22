@@ -1,13 +1,13 @@
 {
-  "name": "gemini-cli-vscode-ide-companion",
-  "displayName": "Gemini CLI Companion",
-  "description": "Enable Gemini CLI with direct access to your IDE workspace.",
+  "name": "nika-cli-vscode-ide-companion",
+  "displayName": "Nika CLI Companion",
+  "description": "Enable Nika CLI with direct access to your IDE workspace.",
   "version": "0.29.0-nightly.20260203.71f46f116",
-  "publisher": "google",
+  "publisher": "pulsai",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/google-gemini/gemini-cli.git",
+    "url": "https://github.com/Powwpol/gemini-cli.git",
     "directory": "packages/vscode-ide-companion"
   },
   "engines": {
@@ -19,10 +19,11 @@
     "AI"
   ],
   "keywords": [
-    "gemini-cli",
-    "gemini cli",
-    "gemini",
-    "gemini code",
+    "nika-cli",
+    "nika cli",
+    "nika",
+    "nika code",
+    "pulsai",
     "cli",
     "ide integration",
     "ide companion"
@@ -32,12 +33,12 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "Gemini CLI",
+      "title": "Nika CLI",
       "properties": {
-        "gemini-cli.debug.logging.enabled": {
+        "nika-cli.debug.logging.enabled": {
           "type": "boolean",
           "default": false,
-          "description": "Enable detailed logging for debugging the Gemini CLI Companion."
+          "description": "Enable detailed logging for debugging the Nika CLI Companion."
         }
       }
     },
@@ -49,21 +50,21 @@
     "commands": [
       {
         "command": "gemini.diff.accept",
-        "title": "Gemini CLI: Accept Diff",
+        "title": "Nika CLI: Accept Diff",
         "icon": "$(check)"
       },
       {
         "command": "gemini.diff.cancel",
-        "title": "Gemini CLI: Close Diff Editor",
+        "title": "Nika CLI: Close Diff Editor",
         "icon": "$(close)"
       },
       {
-        "command": "gemini-cli.runGeminiCLI",
-        "title": "Gemini CLI: Run"
+        "command": "nika-cli.runNikaCLI",
+        "title": "Nika CLI: Run"
       },
       {
-        "command": "gemini-cli.showNotices",
-        "title": "Gemini CLI: View Third-Party Notices"
+        "command": "nika-cli.showNotices",
+        "title": "Nika CLI: View Third-Party Notices"
       }
     ],
     "menus": {

@@ -53,12 +53,11 @@ vi.mock('node:path', async () => {
   };
 });
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
-    GEMINI_DIR: '.gemini',
+    GEMINI_DIR: '.nika',
     homedir: () => '/mock/home',
     Storage: {
       ...actual.Storage,

@@ -11,7 +11,7 @@ import {
   Storage,
   TOOL_OUTPUT_DIR,
   type Config,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import type { Settings, SessionRetentionSettings } from '../config/settings.js';
 import { getAllSessionFiles, type SessionFileEntry } from './sessionUtils.js';
 

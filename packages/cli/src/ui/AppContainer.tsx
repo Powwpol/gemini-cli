@@ -67,7 +67,7 @@ import {
   type ConsentRequestPayload,
   type AgentsDiscoveredPayload,
   ChangeAuthRequestedError,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { validateAuthMethod } from '../config/auth.js';
 import process from 'node:process';
 import { useHistory } from './hooks/useHistoryManager.js';
@@ -654,7 +654,7 @@ export const AppContainer = (props: AppContainerProps) => {
           await runExitCleanup();
           writeToStdout(`
 ----------------------------------------------------------------
-Logging in with Google... Restarting Gemini CLI to continue.
+Logging in with Google... Restarting Nika CLI to continue.
 ----------------------------------------------------------------
           `);
           process.exit(RELAUNCH_EXIT_CODE);
@@ -860,7 +860,7 @@ Logging in with Google... Restarting Gemini CLI to continue.
     historyManager.addItem(
       {
         type: MessageType.INFO,
-        text: 'Refreshing hierarchical memory (GEMINI.md or other context files)...',
+        text: 'Refreshing hierarchical memory (NIKA.md or other context files)...',
       },
       Date.now(),
     );
@@ -1629,7 +1629,7 @@ Logging in with Google... Restarting Gemini CLI to continue.
       lastTitleRef.current = paddedTitle;
       stdout.write(`\x1b]0;${paddedTitle}\x07`);
     }
-    // Note: We don't need to reset the window title on exit because Gemini CLI is already doing that elsewhere
+    // Note: We don't need to reset the window title on exit because Nika CLI is already doing that elsewhere
   }, [
     streamingState,
     thought,

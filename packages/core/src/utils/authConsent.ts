@@ -20,7 +20,7 @@ export async function getConsentForOauth(prompt: string): Promise<boolean> {
     if (!process.stdin.isTTY) {
       throw new FatalAuthenticationError(
         'Interactive consent could not be obtained.\n' +
-          'Please run Gemini CLI in an interactive terminal to authenticate, or use NO_BROWSER=true for manual authentication.',
+          'Please run Nika CLI in an interactive terminal to authenticate, or use NO_BROWSER=true for manual authentication.',
       );
     }
     return getOauthConsentNonInteractive(finalPrompt);

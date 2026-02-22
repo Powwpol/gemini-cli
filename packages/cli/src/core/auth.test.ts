@@ -10,11 +10,10 @@ import {
   type Config,
   ValidationRequiredError,
   AuthType,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     getErrorMessage: (e: unknown) => (e as Error).message,

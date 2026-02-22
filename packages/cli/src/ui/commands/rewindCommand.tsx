@@ -23,7 +23,7 @@ import {
   RewindEvent,
   type ChatRecordingService,
   type GeminiClient,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 /**
  * Helper function to handle the core logic of rewinding a conversation.

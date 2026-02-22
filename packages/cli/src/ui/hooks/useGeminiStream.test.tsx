@@ -25,7 +25,7 @@ import type {
   Config,
   EditorType,
   AnyToolInvocation,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   ApprovalMode,
   AuthType,
@@ -37,7 +37,7 @@ import {
   coreEvents,
   CoreEvent,
   MCPDiscoveryState,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import type { Part, PartListUnion } from '@google/genai';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import type { SlashCommandProcessorResult } from '../types.js';
@@ -86,7 +86,7 @@ const MockValidationRequiredError = vi.hoisted(
     },
 );
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
   const actualCoreModule = (await importOriginal()) as any;
   return {
     ...actualCoreModule,
@@ -295,7 +295,7 @@ describe('useGeminiStream', () => {
   const mockLoadedSettings: LoadedSettings = {
     merged: { preferredEditor: 'vscode' },
     user: { path: '/user/settings.json', settings: {} },
-    workspace: { path: '/workspace/.gemini/settings.json', settings: {} },
+    workspace: { path: '/workspace/.nika/settings.json', settings: {} },
     errors: [],
     forScope: vi.fn(),
     setValue: vi.fn(),

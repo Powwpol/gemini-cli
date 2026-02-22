@@ -11,14 +11,14 @@ import {
   type SerializableConfirmationDetails,
   type ToolResultDisplay,
   debugLogger,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   ToolCallStatus,
   type HistoryItemToolGroup,
   type IndividualToolCallDisplay,
 } from '../types.js';
 
-import { checkExhaustive } from '@google/gemini-cli-core';
+import { checkExhaustive } from '@pulsai/nika-cli-core';
 
 export function mapCoreStatusToDisplayStatus(
   coreStatus: CoreStatus,

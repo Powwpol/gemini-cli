@@ -8,12 +8,12 @@ import { describe, it, expect, vi } from 'vitest';
 import { renderWithProviders } from '../../test-utils/render.js';
 import { createMockSettings } from '../../test-utils/settings.js';
 import { Footer } from './Footer.js';
-import { tildeifyPath, ToolCallDecision } from '@google/gemini-cli-core';
+import { tildeifyPath, ToolCallDecision } from '@pulsai/nika-cli-core';
 import type { SessionStatsState } from '../contexts/SessionContext.js';
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...original,
     shortenPath: (p: string, len: number) => {
@@ -157,7 +157,7 @@ describe('<Footer />', () => {
     });
 
     it('should display custom sandbox info when SANDBOX env is set', () => {
-      vi.stubEnv('SANDBOX', 'gemini-cli-test-sandbox');
+      vi.stubEnv('SANDBOX', 'nika-cli-test-sandbox');
       const { lastFrame } = renderWithProviders(<Footer />, {
         width: 120,
         uiState: { isTrustedFolder: undefined, sessionStats: mockSessionStats },
@@ -189,7 +189,7 @@ describe('<Footer />', () => {
     });
 
     it('should prioritize untrusted message over sandbox info', () => {
-      vi.stubEnv('SANDBOX', 'gemini-cli-test-sandbox');
+      vi.stubEnv('SANDBOX', 'nika-cli-test-sandbox');
       const { lastFrame } = renderWithProviders(<Footer />, {
         width: 120,
         uiState: { isTrustedFolder: false, sessionStats: mockSessionStats },

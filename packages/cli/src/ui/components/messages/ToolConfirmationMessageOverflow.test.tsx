@@ -9,7 +9,7 @@ import { ToolGroupMessage } from './ToolGroupMessage.js';
 import type {
   ToolCallConfirmationDetails,
   Config,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { renderWithProviders } from '../../../test-utils/render.js';
 import { useToolActions } from '../../contexts/ToolActionsContext.js';
 import {
