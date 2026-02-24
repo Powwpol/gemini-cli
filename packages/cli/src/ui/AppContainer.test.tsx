@@ -29,7 +29,7 @@ import {
   type ResumedSessionData,
   AuthType,
   type AgentDefinition,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 // Mock coreEvents
 const mockCoreEvents = vi.hoisted(() => ({
@@ -49,9 +49,8 @@ const mocks = vi.hoisted(() => ({
   mockStdout: { write: vi.fn() },
 }));
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     coreEvents: mockCoreEvents,
@@ -188,7 +187,7 @@ import {
   writeToStdout,
   enableMouseEvents,
   disableMouseEvents,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { type ExtensionManager } from '../config/extension-manager.js';
 import { WARNING_PROMPT_DURATION_MS } from './constants.js';
 
@@ -1092,7 +1091,7 @@ describe('AppContainer State Management', () => {
 
       expect(titleWrites).toHaveLength(1);
       expect(titleWrites[0][0]).toBe(
-        `\x1b]0;${'Gemini CLI (workspace)'.padEnd(80, ' ')}\x07`,
+        `\x1b]0;${'Nika CLI (workspace)'.padEnd(80, ' ')}\x07`,
       );
       unmount();
     });

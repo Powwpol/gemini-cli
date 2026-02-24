@@ -14,13 +14,12 @@ import {
   MessageBusType,
   IdeClient,
   type ToolCallConfirmationDetails,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { ToolCallStatus, type IndividualToolCallDisplay } from '../types.js';
 
 // Mock IdeClient
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     IdeClient: {

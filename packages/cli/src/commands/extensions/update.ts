@@ -14,7 +14,7 @@ import {
 import { checkForExtensionUpdate } from '../../config/extensions/github.js';
 import { getErrorMessage } from '../../utils/errors.js';
 import { ExtensionUpdateState } from '../../ui/state/extensions.js';
-import { coreEvents, debugLogger } from '@google/gemini-cli-core';
+import { coreEvents, debugLogger } from '@pulsai/nika-cli-core';
 import { ExtensionManager } from '../../config/extension-manager.js';
 import { requestConsentNonInteractive } from '../../config/extensions/consent.js';
 import { loadSettings } from '../../config/settings.js';
@@ -59,7 +59,7 @@ export async function handleUpdate(args: UpdateArgs) {
           .join('\n');
         coreEvents.emitFeedback(
           'error',
-          `Extension "${args.name}" not found.\n\nInstalled extensions:\n${installedExtensions}\n\nRun "gemini extensions list" for details.`,
+          `Extension "${args.name}" not found.\n\nInstalled extensions:\n${installedExtensions}\n\nRun "nika extensions list" for details.`,
         );
         return;
       }

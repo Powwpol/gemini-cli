@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { AnsiOutput } from '@google/gemini-cli-core';
+import type { AnsiOutput } from '@pulsai/nika-cli-core';
 
 export interface BackgroundShell {
   pid: number;

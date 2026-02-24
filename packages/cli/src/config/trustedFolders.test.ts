@@ -9,7 +9,7 @@ import {
   FatalConfigError,
   ideContextStore,
   AuthType,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   describe,
   it,
@@ -44,9 +44,8 @@ vi.mock('os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     homedir: () => '/mock/home/user',

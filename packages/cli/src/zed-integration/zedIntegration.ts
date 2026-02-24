@@ -11,7 +11,7 @@ import type {
   ToolCallConfirmationDetails,
   FilterFilesOptions,
   ConversationRecord,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   AuthType,
   logToolCall,
@@ -34,7 +34,7 @@ import {
   startupProfiler,
   Kind,
   partListUnionToString,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import * as acp from '@agentclientprotocol/sdk';
 import { AcpFileSystemService } from './fileSystemService.js';
 import { getAcpErrorMessage } from './acpErrors.js';

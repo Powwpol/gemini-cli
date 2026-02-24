@@ -12,13 +12,13 @@ import { MultiFolderTrustDialog } from '../components/MultiFolderTrustDialog.js'
 import type { SlashCommand, CommandContext } from './types.js';
 import { CommandKind } from './types.js';
 import { MessageType, type HistoryItem } from '../types.js';
-import { refreshServerHierarchicalMemory } from '@google/gemini-cli-core';
+import { refreshServerHierarchicalMemory } from '@pulsai/nika-cli-core';
 import {
   expandHomeDir,
   getDirectorySuggestions,
   batchAddDirectories,
 } from '../utils/directoryUtils.js';
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@pulsai/nika-cli-core';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 
@@ -46,7 +46,7 @@ async function finishAddingDirectories(
       }
       addItem({
         type: MessageType.INFO,
-        text: `Successfully added GEMINI.md files from the following directories if there are:\n- ${added.join('\n- ')}`,
+        text: `Successfully added NIKA.md files from the following directories if there are:\n- ${added.join('\n- ')}`,
       });
     } catch (error) {
       errors.push(`Error refreshing memory: ${(error as Error).message}`);

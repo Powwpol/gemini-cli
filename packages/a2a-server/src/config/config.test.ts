@@ -16,12 +16,11 @@ import {
   ExperimentFlags,
   fetchAdminControlsOnce,
   type FetchAdminControlsResponse,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 // Mock dependencies
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     Config: vi.fn().mockImplementation((params) => {

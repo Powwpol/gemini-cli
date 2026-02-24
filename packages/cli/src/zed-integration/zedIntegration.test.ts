@@ -25,7 +25,7 @@ import {
   type GeminiChat,
   type Config,
   type MessageBus,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import {
   SettingScope,
   type LoadedSettings,
@@ -62,9 +62,9 @@ vi.mock('node:path', async (importOriginal) => {
 
 // Mock ReadManyFilesTool
 vi.mock(
-  '@google/gemini-cli-core',
+  '@pulsai/nika-cli-core',
   async (
-    importOriginal: () => Promise<typeof import('@google/gemini-cli-core')>,
+    importOriginal: () => Promise<typeof import('@pulsai/nika-cli-core')>,
   ) => {
     const actual = await importOriginal();
     return {

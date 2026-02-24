@@ -1567,7 +1567,7 @@ export class Config {
 
   /**
    * Updates the system instruction with the latest user memory.
-   * Whenever the user memory (GEMINI.md files) is updated.
+   * Whenever the user memory (NIKA.md files) is updated.
    */
   updateSystemInstructionIfInitialized(): void {
     const geminiClient = this.getGeminiClient();

@@ -189,7 +189,7 @@ export class Storage {
   }
 
   getExtensionsConfigPath(): string {
-    return path.join(this.getExtensionsDir(), 'gemini-extension.json');
+    return path.join(this.getExtensionsDir(), 'nika-extension.json');
   }
 
   getHistoryFilePath(): string {

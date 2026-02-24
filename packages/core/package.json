@@ -1,11 +1,11 @@
 {
-  "name": "@google/gemini-cli-core",
+  "name": "@pulsai/nika-cli-core",
   "version": "0.29.0-nightly.20260203.71f46f116",
-  "description": "Gemini CLI Core",
+  "description": "Nika CLI Core — Pulsai Agent OS",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google-gemini/gemini-cli.git"
+    "url": "git+https://github.com/Powwpol/gemini-cli.git"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -82,7 +82,7 @@
     "keytar": "^7.9.0"
   },
   "devDependencies": {
-    "@google/gemini-cli-test-utils": "file:../test-utils",
+    "@pulsai/nika-cli-test-utils": "file:../test-utils",
     "@types/fast-levenshtein": "^0.0.4",
     "@types/js-yaml": "^4.0.9",
     "@types/minimatch": "^5.1.2",

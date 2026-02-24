@@ -48,7 +48,7 @@ import {
   type HookEventName,
   type ResolvedExtensionSetting,
   coreEvents,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { maybeRequestConsentOrFail } from './extensions/consent.js';
 import { resolveEnvVarsInObject } from '../utils/envVarResolver.js';
 import { ExtensionStorage } from './extensions/storage.js';
@@ -342,7 +342,7 @@ Would you like to attempt to install via "git clone" instead?`,
             .map((s) => s.name)
             .join(
               ', ',
-            )}. Please run "gemini extensions config ${newExtensionConfig.name} [setting-name]" to configure them.`;
+            )}. Please run "nika extensions config ${newExtensionConfig.name} [setting-name]" to configure them.`;
           debugLogger.warn(message);
           coreEvents.emitFeedback('warning', message);
         }
@@ -1025,7 +1025,7 @@ export async function copyExtension(
 
 function getContextFileNames(config: ExtensionConfig): string[] {
   if (!config.contextFileName) {
-    return ['GEMINI.md'];
+    return ['NIKA.md'];
   } else if (!Array.isArray(config.contextFileName)) {
     return [config.contextFileName];
   }

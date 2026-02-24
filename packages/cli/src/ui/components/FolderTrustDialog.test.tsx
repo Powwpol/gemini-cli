@@ -9,7 +9,7 @@ import { waitFor } from '../../test-utils/async.js';
 import { act } from 'react';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { FolderTrustDialog } from './FolderTrustDialog.js';
-import { ExitCodes } from '@google/gemini-cli-core';
+import { ExitCodes } from '@pulsai/nika-cli-core';
 import * as processUtils from '../../utils/processUtils.js';
 
 vi.mock('../../utils/processUtils.js', () => ({
@@ -77,7 +77,7 @@ describe('FolderTrustDialog', () => {
       <FolderTrustDialog onSelect={vi.fn()} isRestarting={true} />,
     );
 
-    expect(lastFrame()).toContain('Gemini CLI is restarting');
+    expect(lastFrame()).toContain('Nika CLI is restarting');
     unmount();
   });
 

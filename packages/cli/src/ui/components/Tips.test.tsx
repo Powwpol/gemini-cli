@@ -7,11 +7,11 @@
 import { render } from '../../test-utils/render.js';
 import { Tips } from './Tips.js';
 import { describe, it, expect, vi } from 'vitest';
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@pulsai/nika-cli-core';
 
 describe('Tips', () => {
   it.each([
-    [0, '3. Create GEMINI.md files'],
+    [0, '3. Create NIKA.md files'],
     [5, '3. /help for more information'],
   ])('renders correct tips when file count is %i', (count, expectedText) => {
     const config = {

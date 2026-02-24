@@ -27,9 +27,7 @@ describe('UserAccountManager', () => {
   let accountsFile: () => string;
 
   beforeEach(() => {
-    tempHomeDir = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'gemini-cli-test-home-'),
-    );
+    tempHomeDir = fs.mkdtempSync(path.join(os.tmpdir(), 'nika-cli-test-home-'));
     (pathsHomedir as Mock).mockReturnValue(tempHomeDir);
     accountsFile = () =>
       path.join(tempHomeDir, GEMINI_DIR, 'google_accounts.json');

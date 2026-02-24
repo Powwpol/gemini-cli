@@ -21,7 +21,7 @@ import {
   SlashCommandStatus,
   makeFakeConfig,
   coreEvents,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 const {
   logSlashCommand,
@@ -46,9 +46,9 @@ vi.mock('./useAlternateBuffer.js', () => ({
   useAlternateBuffer: mockUseAlternateBuffer,
 }));
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@pulsai/nika-cli-core')>();
 
   return {
     ...original,

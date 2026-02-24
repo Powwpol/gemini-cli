@@ -17,7 +17,7 @@ import {
   coreEvents,
   homedir,
   type AdminControlsSettings,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import stripJsonComments from 'strip-json-comments';
 import { DefaultLight } from '../ui/themes/default-light.js';
 import { DefaultDark } from '../ui/themes/default.js';

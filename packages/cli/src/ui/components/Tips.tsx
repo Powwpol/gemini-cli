@@ -7,7 +7,7 @@
 import type React from 'react';
 import { Box, Text } from 'ink';
 import { theme } from '../semantic-colors.js';
-import { type Config } from '@google/gemini-cli-core';
+import { type Config } from '@pulsai/nika-cli-core';
 
 interface TipsProps {
   config: Config;
@@ -28,7 +28,7 @@ export const Tips: React.FC<TipsProps> = ({ config }) => {
         <Text color={theme.text.primary}>
           3. Create{' '}
           <Text bold color={theme.text.accent}>
-            GEMINI.md
+            NIKA.md
           </Text>{' '}
           files to customize your interactions with Gemini.
         </Text>

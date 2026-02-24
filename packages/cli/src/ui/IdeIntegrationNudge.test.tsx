@@ -9,14 +9,13 @@ import { render } from '../test-utils/render.js';
 import { act } from 'react';
 import { IdeIntegrationNudge } from './IdeIntegrationNudge.js';
 import { KeypressProvider } from './contexts/KeypressContext.js';
-import { debugLogger } from '@google/gemini-cli-core';
+import { debugLogger } from '@pulsai/nika-cli-core';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Mock debugLogger
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     debugLogger: {
@@ -66,7 +65,7 @@ describe('IdeIntegrationNudge', () => {
     });
     const frame = lastFrame();
 
-    expect(frame).toContain('Do you want to connect VS Code to Gemini CLI?');
+    expect(frame).toContain('Do you want to connect VS Code to Nika CLI?');
     expect(frame).toContain('Yes');
     expect(frame).toContain('No (esc)');
     expect(frame).toContain("No, don't ask again");

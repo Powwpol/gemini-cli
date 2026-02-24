@@ -17,7 +17,7 @@ import {
   type ExtensionInstallMetadata,
   type GeminiCLIExtension,
   coreEvents,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { EXTENSION_SETTINGS_FILENAME } from './variables.js';
 import { ExtensionManager } from '../extension-manager.js';
 import { createTestMergedSettings } from '../settings.js';
@@ -37,9 +37,8 @@ vi.mock('node:fs', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   return {
     ...actual,
     KeychainTokenStorage: vi.fn(),
@@ -105,13 +104,11 @@ describe('extensionUpdates', () => {
     );
 
     // Setup Temp Dirs
-    tempHomeDir = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'gemini-cli-test-home-'),
-    );
+    tempHomeDir = fs.mkdtempSync(path.join(os.tmpdir(), 'nika-cli-test-home-'));
     tempWorkspaceDir = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'gemini-cli-test-workspace-'),
+      path.join(os.tmpdir(), 'nika-cli-test-workspace-'),
     );
-    extensionDir = path.join(tempHomeDir, '.gemini', 'extensions', 'test-ext');
+    extensionDir = path.join(tempHomeDir, '.nika', 'extensions', 'test-ext');
 
     // Mock ExtensionStorage to rely on our temp extension dir
     vi.spyOn(ExtensionStorage.prototype, 'getExtensionDir').mockReturnValue(
@@ -151,7 +148,7 @@ describe('extensionUpdates', () => {
 
       // Setup Keychain
       const userKeychain = new KeychainTokenStorage(
-        `Gemini CLI Extensions test-ext ${extensionId}`,
+        `Nika CLI Extensions test-ext ${extensionId}`,
       );
       await userKeychain.setSecret('VAR2', 'val2');
 

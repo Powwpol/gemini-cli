@@ -80,7 +80,7 @@ const cliConfig = {
     js: `import { createRequire } from 'module'; const require = createRequire(import.meta.url); globalThis.__filename = require('url').fileURLToPath(import.meta.url); globalThis.__dirname = require('path').dirname(globalThis.__filename);`,
   },
   entryPoints: ['packages/cli/index.ts'],
-  outfile: 'bundle/gemini.js',
+  outfile: 'bundle/nika.js',
   define: {
     'process.env.CLI_VERSION': JSON.stringify(pkg.version),
   },
@@ -114,7 +114,7 @@ Promise.allSettled([
 ]).then((results) => {
   const [cliResult, a2aResult] = results;
   if (cliResult.status === 'rejected') {
-    console.error('gemini.js build failed:', cliResult.reason);
+    console.error('nika.js build failed:', cliResult.reason);
     process.exit(1);
   }
   // error in a2a-server bundling will not stop gemini.js bundling process

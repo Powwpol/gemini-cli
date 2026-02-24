@@ -5,7 +5,7 @@
  */
 
 import type { CommandModule } from 'yargs';
-import { debugLogger } from '@google/gemini-cli-core';
+import { debugLogger } from '@pulsai/nika-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import semver from 'semver';
@@ -62,7 +62,7 @@ async function validateExtension(args: ValidateArgs) {
     }
     if (missingContextFiles.length > 0) {
       errors.push(
-        `The following context files referenced in gemini-extension.json are missing: ${missingContextFiles}`,
+        `The following context files referenced in nika-extension.json are missing: ${missingContextFiles}`,
       );
     }
   }

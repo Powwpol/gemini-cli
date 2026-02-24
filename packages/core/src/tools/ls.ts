@@ -31,7 +31,7 @@ export interface LSToolParams {
   ignore?: string[];
 
   /**
-   * Whether to respect .gitignore and .geminiignore patterns (optional, defaults to true)
+   * Whether to respect .gitignore and .nikaignore patterns (optional, defaults to true)
    */
   file_filtering_options?: {
     respect_git_ignore?: boolean;
@@ -294,7 +294,7 @@ export class LSTool extends BaseDeclarativeTool<LSToolParams, ToolResult> {
           },
           file_filtering_options: {
             description:
-              'Optional: Whether to respect ignore patterns from .gitignore or .geminiignore',
+              'Optional: Whether to respect ignore patterns from .gitignore or .nikaignore',
             type: 'object',
             properties: {
               respect_git_ignore: {
@@ -304,7 +304,7 @@ export class LSTool extends BaseDeclarativeTool<LSToolParams, ToolResult> {
               },
               respect_gemini_ignore: {
                 description:
-                  'Optional: Whether to respect .geminiignore patterns when listing files. Defaults to true.',
+                  'Optional: Whether to respect .nikaignore patterns when listing files. Defaults to true.',
                 type: 'boolean',
               },
             },

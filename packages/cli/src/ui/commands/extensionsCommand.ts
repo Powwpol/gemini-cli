@@ -8,7 +8,7 @@ import {
   debugLogger,
   listExtensions,
   type ExtensionInstallMetadata,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import type { ExtensionUpdateInfo } from '../../config/extension.js';
 import { getErrorMessage } from '../../utils/errors.js';
 import {
@@ -250,7 +250,7 @@ async function restartAction(
 }
 
 async function exploreAction(context: CommandContext) {
-  const extensionsUrl = 'https://geminicli.com/extensions/';
+  const extensionsUrl = 'https://nikacli.dev/extensions/';
 
   // Only check for NODE_ENV for explicit test mode, not for unit test framework
   if (process.env['NODE_ENV'] === 'test') {

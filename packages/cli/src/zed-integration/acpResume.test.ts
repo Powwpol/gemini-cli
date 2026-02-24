@@ -15,7 +15,7 @@ import {
 } from 'vitest';
 import { GeminiAgent } from './zedIntegration.js';
 import * as acp from '@agentclientprotocol/sdk';
-import { AuthType, type Config } from '@google/gemini-cli-core';
+import { AuthType, type Config } from '@pulsai/nika-cli-core';
 import { loadCliConfig, type CliArgs } from '../config/config.js';
 import {
   SessionSelector,

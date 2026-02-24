@@ -17,7 +17,7 @@ import {
 } from '../types.js';
 import { disableSkill, enableSkill } from '../../utils/skillSettings.js';
 
-import { getAdminErrorMessage } from '@google/gemini-cli-core';
+import { getAdminErrorMessage } from '@pulsai/nika-cli-core';
 import { renderSkillActionFeedback } from '../../utils/skillUtils.js';
 import { SettingScope } from '../../config/settings.js';
 
@@ -290,7 +290,7 @@ function enableCompletion(
 export const skillsCommand: SlashCommand = {
   name: 'skills',
   description:
-    'List, enable, disable, or reload Gemini CLI agent skills. Usage: /skills [list | disable <name> | enable <name> | reload]',
+    'List, enable, disable, or reload Nika CLI agent skills. Usage: /skills [list | disable <name> | enable <name> | reload]',
   kind: CommandKind.BUILT_IN,
   autoExecute: false,
   subCommands: [

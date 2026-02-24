@@ -11,7 +11,7 @@ import { requestConsentNonInteractive } from '../../config/extensions/consent.js
 import {
   debugLogger,
   type ResolvedExtensionSetting,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 
 export async function getExtensionManager() {
   const workspaceDir = process.cwd();

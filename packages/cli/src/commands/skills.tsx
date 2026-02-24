@@ -10,7 +10,7 @@ import { enableCommand } from './skills/enable.js';
 import { disableCommand } from './skills/disable.js';
 import { installCommand } from './skills/install.js';
 import { uninstallCommand } from './skills/uninstall.js';
-import { initializeOutputListenersAndFlush } from '../gemini.js';
+import { initializeOutputListenersAndFlush } from '../nika.js';
 import { defer } from '../deferred.js';
 
 export const skillsCommand: CommandModule = {

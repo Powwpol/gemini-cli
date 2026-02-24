@@ -9,14 +9,13 @@ import {
   ApprovalMode,
   PolicyDecision,
   PolicyEngine,
-} from '@google/gemini-cli-core';
+} from '@pulsai/nika-cli-core';
 import { createPolicyEngineConfig } from './policy.js';
 import type { Settings } from './settings.js';
 
 // Mock Storage to ensure tests are hermetic and don't read from user's home directory
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+vi.mock('@pulsai/nika-cli-core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@pulsai/nika-cli-core')>();
   const Storage = actual.Storage;
   // Monkey-patch static methods
   Storage.getUserPoliciesDir = () => '/non-existent/user/policies';
@@ -334,7 +333,7 @@ describe('Policy Engine Integration Tests', () => {
 
       // Valid plan file path (64-char hex hash, .md extension, safe filename)
       const validPlanPath =
-        '/home/user/.gemini/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/my-plan.md';
+        '/home/user/.nika/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/my-plan.md';
       expect(
         (
           await engine.check(
@@ -346,7 +345,7 @@ describe('Policy Engine Integration Tests', () => {
 
       // Valid plan with underscore in filename
       const validPlanPath2 =
-        '/home/user/.gemini/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/feature_auth.md';
+        '/home/user/.nika/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/feature_auth.md';
       expect(
         (
           await engine.check(
@@ -378,7 +377,7 @@ describe('Policy Engine Integration Tests', () => {
 
       // Write to plans dir but wrong extension should be denied
       const wrongExtPath =
-        '/home/user/.gemini/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/script.js';
+        '/home/user/.nika/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/script.js';
       expect(
         (
           await engine.check(
@@ -390,7 +389,7 @@ describe('Policy Engine Integration Tests', () => {
 
       // Path traversal attempt should be denied (filename contains /)
       const traversalPath =
-        '/home/user/.gemini/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/../../../etc/passwd.md';
+        '/home/user/.nika/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/../../../etc/passwd.md';
       expect(
         (
           await engine.check(
@@ -401,7 +400,7 @@ describe('Policy Engine Integration Tests', () => {
       ).toBe(PolicyDecision.DENY);
 
       // Invalid hash length should be denied
-      const shortHashPath = '/home/user/.gemini/tmp/abc123/plans/plan.md';
+      const shortHashPath = '/home/user/.nika/tmp/abc123/plans/plan.md';
       expect(
         (
           await engine.check(
@@ -423,7 +422,7 @@ describe('Policy Engine Integration Tests', () => {
 
       // Write to subdirectory should be denied
       const subdirPath =
-        '/home/user/.gemini/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/subdir/plan.md';
+        '/home/user/.nika/tmp/a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2/plans/subdir/plan.md';
       expect(
         (
           await engine.check(

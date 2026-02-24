@@ -14,7 +14,7 @@ import {
   getThemeTypeFromBackgroundColor,
 } from './color-utils.js';
 
-import type { CustomTheme } from '@google/gemini-cli-core';
+import type { CustomTheme } from '@pulsai/nika-cli-core';
 
 export type { CustomTheme };
 
